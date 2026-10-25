@@ -1,2 +1,25 @@
-# metasongi-rag-lab
-RAG learning lab: document ingestion, chunking, embeddings, vector search, Top-K retrieval, context-grounded answers with citations and retrieval evaluation.
+# MetaSonGi RAG Lab
+
+문서 검색부터 근거 기반 답변까지 직접 구현하고 관찰하는 독립 RAG 실험 프로젝트입니다.
+
+## 현재 상태
+저장소와 개발 계획만 초기화했습니다. 실행 가능한 서비스와 모델 연동은 아직 구현하지 않았습니다.
+
+## 목표 흐름
+문서 수집 → 텍스트 추출 → 청크 분할 → 임베딩 → Vector DB 저장
+
+질문 → 질문 임베딩 → 권한·자료 버전 필터 → Top-K 검색 → 선택적 재정렬 → context 주입 → LLM 답변과 출처
+
+## MVP 개발 목록
+- [ ] TXT·Markdown 업로드와 청크 미리보기
+- [ ] 임베딩 모델과 벡터 저장소 연결
+- [ ] Top-K와 청크 크기 설정
+- [ ] 검색 결과·점수·원문 위치 표시
+- [ ] 근거 기반 답변과 근거 부족 시 답변 보류
+- [ ] 정답 근거를 지정한 질문 세트로 검색 품질 평가
+
+## 설계 원칙
+Python API와 간단한 웹 UI로 시작합니다. 문서·질문 임베딩은 호환되는 모델을 사용합니다. LLM 키는 서버 환경변수로 관리하고 저장소에 업로드하지 않습니다. 로컬 실행을 우선하고 외부 API는 선택적으로 연결합니다.
+
+## 프로젝트 경계
+학습 플랫폼과 스마트팩토리 VR에서 추후 API로 호출할 수 있지만, 이 저장소 자체로 RAG를 실험할 수 있도록 독립성을 유지합니다.
